@@ -1,0 +1,18 @@
+Package: desiR
+Type: Package
+Title: Desirability Functions for Ranking, Selection, and Data Integration
+Version: 1.0
+Date: 2015-06-03
+Author: Stanley E. Lazic
+Maintainer: Stanley E. Lazic <stan.lazic@cantab.net>
+Description: Functions for (1) ranking, selecting, and prioritisating genes,
+    proteins, and metabolites from high dimensional biology experiments, (2)
+    multivariate hit calling in high content screens, and (3) combining data
+    from diverse sources.
+License: GPL-3
+LazyData: true
+Depends: R (>= 2.10)
+Suggests: knitr
+URL: https://github.com/stanlazic/desiR
+BugReports: https://github.com/stanlazic/desiR/issues
+VignetteBuilder: knitr
