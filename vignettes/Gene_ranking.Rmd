@@ -16,16 +16,14 @@ vignette: >
 
 Desirability functions were developed for multi-objective optimisation in the 1960s (Harrington, 1965; Derringer and Suich, 1980) and are used extensively in medicinal chemistry (Bickerton et al., 2012). They are co-opted here to select, rank, and prioritise genes, proteins, and metabolites. The `desirability` and `desire` packages on CRAN can be used for the traditional application of desirability functions. The `desiR` (pronounced "desire") package focuses on ranking, selection, and prioritisation.
 
-Using this approach genes are characterised according to several criteria, such as fold-change and p-value for a particular comparison, whether a gene is in a particular pathway, or the correlation of a gene with a key or target gene. The importance of these criteria differ, they are measured on different scales, and have different units of measurement. Nevertheless, all of the variables can be mapped to a 0--1 desirability scale using several mathematical functions, where a value of one is maximally desirable and zero is unacceptable. A weighted average of the individual desirabilities is then calculated to provide an overall desirability. More specifically, applying the desirability approach involves four steps:
+Using this approach genes are characterised according to several criteria, such as fold-change and p-value for a particular comparison, whether a gene is in a particular pathway, or the correlation of a gene with a key or target gene. The importance of these criteria differ, they are measured on different scales, and have different units of measurement. Nevertheless, all of the variables can be mapped to a 0--1 desirability scale using several mathematical functions, where a value of one is maximally desirable and zero is unacceptable. A weighted average of the individual desirabilities is then calculated to provide an overall desirability. More specifically, applying the desirability approach involves three steps:
 
 
 1. **Choose the relevant variables.** The choice of variables is determined by the biological question, along with technical considerations. For example, genes with a large fold-change are more desirable or interesting than those with smaller fold-changes.
 
 2.  **Map values for each variable onto a continuous 0--1 scale using the appropriate desirability function.** The choice of function depends on whether high, low, central, or extreme values are considered desirable. Categorical variables can also be included and examples of different functions are shown below. 
 
-3. **Calculate the overall desirability as a weighted combination of the individual desirabilities.** The results should usually be driven by one or two criteria (e.g. fold-change and p-value) that are given a high weight, with the other criteria acting as soft filters (e.g. average expression) with lower weights.
- 
-4. **Order genes by overall desirability.** Genes are ranked along a single dimension and only one threshold at the final stage of the analysis is applied.
+3. **Calculate the overall desirability as a weighted combination of the individual desirabilities.** The results should usually be driven by one or two criteria (e.g. fold-change and p-value) that are given a high weight, with the other criteria acting as soft filters (e.g. average expression) with lower weights. Then, order genes by overall desirability. Genes are ranked along a single dimension and only one threshold at the final stage of the analysis is applied.
 
 The desirability approach is both a generalisation and formalisation of currently used methods of selecting and prioritising genes. For example, genes that have an adjusted p-value of less than 0.05 and a fold-change greater than 2 may be deemed "differentially expressed". This approach has implicitly mapped the p-values and fold-change values to a binary 0/1 desirability scale and treated both criteria as equally important. The desirability approach formalises this procedure and expands the range of functions that are applied. Importantly, mapping continuous values to a binary scale is avoided because such dichotomisation is a poor use of the data (Cohen, 1983; Irwin and McClelland, 2003; Royston et al., 2006; Naggara et al., 2011; Kuss, 2013). 
 
@@ -124,25 +122,25 @@ par(mfrow=c(3,2),
     las=1)
 hist(farmer2005$AveExpr, breaks=30, col="grey", border="white", main="",
      xlab="Mean expression")
-des.line(farmer2005$AveExpr, "d.high", cut1=5.75, cut2=7, scale=0.5)
+des.line(farmer2005$AveExpr, "d.high", des.args=c(cut1=5.75, cut2=7, scale=0.5))
 
 hist(farmer2005$SD, breaks=30, col="grey", border="white", main="",
      xlab="Within group SD")
-des.line(farmer2005$SD, "d.high", cut1=0.1, cut2=0.3, scale=0.5)
+des.line(farmer2005$SD, "d.high", des.args=c(cut1=0.1, cut2=0.3, scale=0.5))
 
 hist(farmer2005$P.Value, breaks=50, col="grey", border="white", main="",
      xlab="p-value")
-des.line(farmer2005$P.Value, "d.low", cut1=0.0001, cut2=0.1, scale=2)
+des.line(farmer2005$P.Value, "d.low", des.args=c(cut1=0.0001, cut2=0.1, scale=2))
 
 hist(farmer2005$logFC, breaks=50, col="grey", border="white", main="",
      xlab="Log FC")
-des.line(farmer2005$logFC, "d.ends", cut1=log2(1/3), cut2=log2(1/1.5),
-         cut3=log2(1.5), cut4=log2(3), scale=0.5)
+des.line(farmer2005$logFC, "d.ends", des.args=c(cut1=log2(1/3), cut2=log2(1/1.5),
+         cut3=log2(1.5), cut4=log2(3), scale=0.5))
 
 hist(abs(farmer2005$PCNA.cor), breaks=50, col="grey", border="white", main="",
      xlab="Absolute correlation with PCNA")
-des.line(farmer2005$P.Value, "d.low",  cut1=0.15, cut2=0.5,
-         scale=1.5, des.min = 0.05)
+des.line(farmer2005$P.Value, "d.low",  des.args=c(cut1=0.15, cut2=0.5,
+         scale=1.5, des.min = 0.05))
 ```
 
 Once suitable functions, cut points, and scales are selected, the final desirability values for each variable are calculated and saved as additional columns in the dataframe. The options for each desirability function below are identical to those in the figure above.
@@ -204,7 +202,7 @@ abline(h=-log10(0.05), lty=2)
 
 The desirability criteria can be grouped into (1) those that are external to the data set, and include information contained in bioinformatics databases as well as previous publications, and (2) those that are based on the data, and include p-values, fold-changes, and average expression levels. Categorical desirability functions are often suitable when incorporating information from databases, and continuous functions are better suited for experimental results. Several examples are provided below to stimulate ideas (most examples have not been tried), and the choice of criteria to include is determined by the biological question, along with any technical considerations. Any combination of the examples can be used, and in most cases they would be in addition to the usual fold-change, p-value, average expression, and variance in expression desirabilities.
 
-Database External criteria:
+Database/external criteria:
 
 - __In a gene set:__ A gene set is a collection of genes that share certain attributes, such as belonging to a biochemical pathway or sharing the same molecular function. A collection of commonly used gene sets can be found in the Molecular Signature Data Base ([MSigDB](http://www.broadinstitute.org/gsea/msigdb/collections.jsp)).  It is possible to increase or decrease the desirability of genes according to whether they are in a relevant gene set. A categorical desirability function can be used, perhaps a value of 1 if a gene is in the set and 0.2 otherwise. The gene is not completely removed if it is not in the gene set, just reduced in importance. The gene ontology (GO) gene sets also have [evidence codes](http://geneontology.org/page/guide-go-evidence-codes) that describe how the annotation of the gene was derived. One could give a higher desirability to annotations based on experimental evidence compared with computational predictions for example. Discovering new genes is less likely when previous information is used for ranking and selection, so incorporating external information will not be appropriate in all cases.
 

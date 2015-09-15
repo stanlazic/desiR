@@ -1,11 +1,11 @@
 Package: desiR
 Type: Package
-Title: Desirability Functions for Ranking, Selection, and Data Integration
-Version: 1.0
-Date: 2015-06-03
+Title: Desirability Functions for Ranking, Selecting, and Integrating Data
+Version: 1.1
+Date: 2015-09-15
 Author: Stanley E. Lazic
 Maintainer: Stanley E. Lazic <stan.lazic@cantab.net>
-Description: Functions for (1) ranking, selecting, and prioritisating genes,
+Description: Functions for (1) ranking, selecting, and prioritising  genes,
     proteins, and metabolites from high dimensional biology experiments, (2)
     multivariate hit calling in high content screens, and (3) combining data
     from diverse sources.

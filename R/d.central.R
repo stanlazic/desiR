@@ -29,15 +29,16 @@
 #' # plot data
 #' hist(x, breaks=30)
 #' # add line
-#' des.line(x, "d.central",  cut1=90, cut2=95, cut3=105, cut4=110, scale=1)
+#' des.line(x, "d.central", des.args=c(cut1=90, cut2=95, cut3=105,
+#' cut4=110, scale=1))
 #'
 #' hist(x, breaks=30)
-#' des.line(x, "d.central",  cut1=90, cut2=95, cut3=105, cut4=110,
-#' des.min=0.1, des.max=0.95, scale=1.5)
+#' des.line(x, "d.central", des.args=c(cut1=90, cut2=95, cut3=105,
+#' cut4=110, des.min=0.1, des.max=0.95, scale=1.5))
 #'
 #' # target value
 #' hist(x, breaks=30)
-#' des.line(x, "d.central", cut1=90, cut2=99.9, cut3=100.1, cut4=110)
+#' des.line(x, "d.central", des.args=c(cut1=90, cut2=99.9, cut3=100.1, cut4=110))
 
 d.central <- function(x, cut1, cut2, cut3, cut4, des.min = 0,
                      des.max = 1, scale = 1){

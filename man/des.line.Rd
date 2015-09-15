@@ -4,14 +4,17 @@
 \alias{des.line}
 \title{Plots a desirability function on an existing graph}
 \usage{
-des.line(x, des.func, ...)
+des.line(x, des.func, des.args, ...)
 }
 \arguments{
 \item{x}{Vector of numeric or integer values.}
 
 \item{des.func}{Name of the desirability function to plot (in quotes).}
 
-\item{...}{Arguments for the chosen desirability function.}
+\item{des.args}{A vector of named arguments for the chosen desirability
+function.}
+
+\item{...}{Arguments for the plotting function (e.g. xlim, lwd, lty).}
 }
 \value{
 Plotted values of the desirability function.
@@ -24,13 +27,16 @@ usually a histogram or density plot.
 This function can be used to visualise how the desirabilities are
 mapped from the raw data to a 0-1 scale, which can help select suitable cut
 points. The scale of the y-axis has a minimum of 0 and a maximum of 1.
+
+WARNING: If you set xlim values for the histogram or density plot, then you must pass the same xlim values to des.line; otherwise the data and desirability function (plotted line) will be misaligned. If xlim is not set, then the same default values will be used for the data and the function.
 }
 \examples{
 set.seed(1)
 x1 <- rnorm(100, 10, 2)
 hist(x1, breaks=10, col="grey", border="white")
-des.line(x1, "d.high", cut1=10, cut2=11)
-des.line(x1, "d.high", cut1=10, cut2=11, des.min=0.1, scale=0.5)
+des.line(x1, "d.high", des.args=c(cut1=10, cut2=11))
+des.line(x1, "d.high", des.args=c(cut1=10, cut2=11,
+des.min=0.1, scale=0.5))
 }
 \seealso{
 \code{\link{d.low}}, \code{\link{d.high}}, \code{\link{d.central}},

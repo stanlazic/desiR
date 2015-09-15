@@ -37,11 +37,11 @@ d <- d.low(x, cut1=90, cut2=110, scale=1)
 # plot data
 hist(x, breaks=30)
 # add line
-des.line(x, "d.low",  cut1=90, cut2=110, scale=1)
+des.line(x, "d.low", des.args=c(cut1=90, cut2=110, scale=1))
 
 hist(x, breaks=30)
-des.line(x, "d.low", cut1=90, cut2=110, des.min=0.1,
-des.max=0.95, scale=1.5)
+des.line(x, "d.low", des.args=c(cut1=90, cut2=110, des.min=0.1,
+des.max=0.95, scale=1.5))
 }
 \seealso{
 \code{\link{d.high}},  \code{\link{d.4pl}}

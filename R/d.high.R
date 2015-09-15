@@ -25,11 +25,11 @@
 #' # plot data
 #' hist(x, breaks=30)
 #' # add line
-#' des.line(x, "d.high",  cut1=90, cut2=110, scale=1)
+#' des.line(x, "d.high", des.args=c(cut1=90, cut2=110, scale=1))
 #'
 #' hist(x, breaks=30)
-#' des.line(x, "d.high", cut1=90, cut2=110, des.min=0.1,
-#' des.max=0.95, scale=1.5)
+#' des.line(x, "d.high", des.args=c(cut1=90, cut2=110, des.min=0.1,
+#' des.max=0.95, scale=1.5))
 
 
 d.high <- function(x, cut1, cut2, des.min = 0, des.max = 1, scale = 1){
