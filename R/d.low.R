@@ -1,4 +1,4 @@
-#' @title Low  values are desirable
+#' @title Low values are desirable
 #'
 #' @description Maps a numeric variable to a 0-1 scale such that low values are
 #' desirable.
