@@ -22,7 +22,7 @@
 #' @examples
 #' set.seed(1)
 #' x1 <- rnorm(100, 10, 2)
-#' hist(x1, breaks=10, col="grey", border="white")
+#' hist(x1, breaks=10)
 #' des.line(x1, "d.high", des.args=c(cut1=10, cut2=11))
 #' des.line(x1, "d.high", des.args=c(cut1=10, cut2=11,
 #' des.min=0.1, scale=0.5))
@@ -32,9 +32,10 @@
 des.line <- function(x, des.func, des.args, ...){
 
   # check function selected correctly (one must be specified)
-  if (!des.func %in% c("d.low","d.high","d.central", "d.ends", "d.4pl")) {
+  if (!des.func %in% c("d.low","d.high","d.central", "d.ends",
+                       "d.4pl", "d.rank")) {
     stop("\ndes.func must be one of 'd.high', 'd.low',
-         'd.central', 'd.ends', or 'd.4pl'\n")
+         'd.central', 'd.ends', 'd.4pl', or 'd.rank'\n")
   }
 
   # make values for plotting
@@ -73,6 +74,12 @@ des.line <- function(x, des.func, des.args, ...){
     
   if (des.func=="d.4pl") {
     graphics::plot(do.call(d.4pl, c(list(x=vals), des.args) ) ~ vals,
+         ylim=c(0,1), type="l",  yaxt="n", bty="n", xaxt="n",
+         ylab="", xlab="", ...)
+  }
+
+  if (des.func=="d.rank") {
+      graphics::plot(do.call(d.rank, c(list(x=vals), des.args) ) ~ vals,
          ylim=c(0,1), type="l",  yaxt="n", bty="n", xaxt="n",
          ylab="", xlab="", ...)
   }
