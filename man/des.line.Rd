@@ -33,7 +33,7 @@ WARNING: If you set xlim values for the histogram or density plot, then you must
 \examples{
 set.seed(1)
 x1 <- rnorm(100, 10, 2)
-hist(x1, breaks=10, col="grey", border="white")
+hist(x1, breaks=10)
 des.line(x1, "d.high", des.args=c(cut1=10, cut2=11))
 des.line(x1, "d.high", des.args=c(cut1=10, cut2=11,
 des.min=0.1, scale=0.5))
