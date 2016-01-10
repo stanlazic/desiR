@@ -2,7 +2,7 @@
 % Please edit documentation in R/d.low.R
 \name{d.low}
 \alias{d.low}
-\title{Low  values are desirable}
+\title{Low values are desirable}
 \usage{
 d.low(x, cut1, cut2, des.min = 0, des.max = 1, scale = 1)
 }
