@@ -1,4 +1,4 @@
-# desiR 1.1.1
+# desiR 1.2
 
 * Added citation information.
 
