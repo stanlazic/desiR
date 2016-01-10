@@ -1,16 +1,17 @@
-#' @title Converts values to ranks then to desirabilities
+#' @title Converts values to ranks, then ranks to desirabilities
 #'
 #' @description Values are ranked from low to high or high to low, and
 #' then the ranks are mapped to a 0-1 scale.
 #'
-#' @details If low values of a variable are desirable set the argument
-#' low.to.high=TRUE, otherwise low.to.high=FALSE.
+#' @details If low values of a variable are desirable (e.g. p-values)
+#' set the argument low.to.high=TRUE, otherwise low.to.high=FALSE.
 #'
-#' If both high and low values are of interest, take the absolute
-#' value of the variable and use low.to.high=FALSE. See the example below.
+#' If extreme values in either direction are of interest
+#' (e.g. fold-changes), take the absolute value of the variable and
+#' use low.to.high=FALSE. See the example below.
 #'
 #' This function is less flexible than the others but it can be used
-#' to compare the results with rank aggregation methods.
+#' to compare the desirability approach with rank aggregation methods.
 #'
 #' @param x Vector of numeric or integer values.
 #'
@@ -34,12 +35,12 @@
 #' des.line(x1, "d.rank", des.args=c(low.to.high=TRUE))
 #'
 #' x2 <- rnorm(1000, mean=0, sd =5) # positive and negative values
-#' # could be mean differences or t-statistics
+#' # could be fold-changes, mean differences, or t-statistics
 #' hist(abs(x2), breaks=30)
 #' # add line
 #' des.line(abs(x2), "d.rank", des.args=c(low.to.high=FALSE))
 
-d.rank <- function(x, low.to.high=TRUE, ties="min"){
+d.rank <- function(x, low.to.high, ties="min"){
 
     if(is.logical(low.to.high) == FALSE) stop("low.to.high must be TRUE or FALSE\n")
 
