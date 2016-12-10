@@ -1,8 +1,8 @@
 Package: desiR
 Type: Package
 Title: Desirability Functions for Ranking, Selecting, and Integrating Data
-Version: 1.2
-Date: 2016-01-10
+Version: 1.2.1
+Date: 2016-12-10
 Author: Stanley E. Lazic
 Maintainer: Stanley E. Lazic <stan.lazic@cantab.net>
 Description: Functions for (1) ranking, selecting, and prioritising  genes,
@@ -11,8 +11,11 @@ Description: Functions for (1) ranking, selecting, and prioritising  genes,
     from diverse sources.
 License: GPL-3
 LazyData: true
-Depends: R (>= 2.10)
-Suggests: knitr
+Depends:
+    R (>= 2.10)
+Suggests:
+    knitr
 URL: https://github.com/stanlazic/desiR
 BugReports: https://github.com/stanlazic/desiR/issues
 VignetteBuilder: knitr
+RoxygenNote: 5.0.1

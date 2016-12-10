@@ -39,7 +39,9 @@ d.overall <- function(..., weights = NULL){
   # merge into matrix
   d.all <- cbind(...)
 
-  if(min(d.all) < 0 | max(d.all) > 1) stop("Desirabilities must be between 0 and 1\n")
+  if(min(d.all, na.rm=TRUE) < 0 | max(d.all, na.rm=TRUE) > 1) {
+      stop("Desirabilities must be between 0 and 1\n")
+  }
 
   # check lengths match
   if(!is.null(weights)) {

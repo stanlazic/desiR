@@ -1,0 +1,17 @@
+citHeader("To cite desiR in publications use:")
+
+citEntry(entry = "Article",
+  title        = "Ranking, selecting, and prioritising genes with desirability functions",
+  author       = "Stanley E. Lazic",
+  journal      = "PeerJ",
+  year         = "2015",
+  volume       = "3",
+  pages        = "e1444",
+  url          = "https://doi.org/10.7717/peerj.1444",
+
+  textVersion  =
+  paste("Stanley E. Lazic (2015).",
+        "Ranking, selecting, and prioritising genes with desirability functions.",
+        "PeerJ, 3, e1444.",
+        "URL https://doi.org/10.7717/peerj.1444.")
+)
