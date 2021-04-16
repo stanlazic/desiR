@@ -46,4 +46,3 @@ des.max=0.95, scale=1.5))
 \seealso{
 \code{\link{d.high}},  \code{\link{d.4pl}}
 }
-

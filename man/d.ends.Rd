@@ -51,4 +51,3 @@ cut4=110, des.min=0.1, des.max=0.95, scale=1.5))
 \seealso{
 \code{\link{d.central}}
 }
-

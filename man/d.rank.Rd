@@ -50,4 +50,3 @@ hist(abs(x2), breaks=30)
 # add line
 des.line(abs(x2), "d.rank", des.args=c(low.to.high=FALSE))
 }
-

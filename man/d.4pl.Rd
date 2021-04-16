@@ -57,4 +57,3 @@ plot(d3 ~ x2, type="l")
 \seealso{
 \code{\link{d.low}},  \code{\link{d.high}}
 }
-

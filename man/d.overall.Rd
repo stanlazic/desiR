@@ -39,4 +39,3 @@ d2 <- d.low(x2, cut1=90, cut2=110, scale=1)
 D <- d.overall(d1, d2, weights=c(1, 0.5))
 plot(rev(sort(D)), type="l")
 }
-

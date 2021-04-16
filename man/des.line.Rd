@@ -42,4 +42,3 @@ des.min=0.1, scale=0.5))
 \code{\link{d.low}}, \code{\link{d.high}}, \code{\link{d.central}},
 \code{\link{d.ends}}, \code{\link{d.4pl}}
 }
-

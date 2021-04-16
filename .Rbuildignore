@@ -4,3 +4,7 @@
 ^cran-comments\.md$
 ^makeit\.R$
 ^NEWS\.md$
+^doc$
+^\.git$
+^\.gitignore$
+^Meta$

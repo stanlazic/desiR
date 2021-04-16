@@ -4,7 +4,8 @@
 \name{farmer2005}
 \alias{farmer2005}
 \title{Breast cancer microarray dataset}
-\format{A data frame with 1000 rows and 7 variables:
+\format{
+A data frame with 1000 rows and 7 variables:
 \describe{
   \item{ProbeSet:}{Affymetrix probesets from the U133A chip.}
   \item{GeneID:}{Gene symbol.}
@@ -13,7 +14,8 @@
   \item{P.Value:}{P-value for basal versus luminal comparison.}
   \item{SD:}{Standard deviation across all samples.}
   \item{PCNA.cor:}{Correlation with PCNA (a marker of proliferating cells).}
-}}
+}
+}
 \description{
 1000 randomly selected probesets from a breast cancer microarray
 dataset (Farmer et al., 2005).
@@ -29,4 +31,3 @@ AL, Brisken C, Fiche M, Delorenzi M, Iggo R. Identification of molecular
 apocrine breast tumours by microarray analysis. Oncogene. 2005
 24(29):4660-4671.
 }
-

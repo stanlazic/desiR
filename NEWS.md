@@ -1,3 +1,6 @@
+# desiR 1.2.2
+* Made compliant with updated knitr requirements.
+
 # desiR 1.2.1
 
 * Fixed bug in d.overall() function. Now handles missing values instead of giving an error message.

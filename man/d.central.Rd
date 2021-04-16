@@ -55,4 +55,3 @@ des.line(x, "d.central", des.args=c(cut1=90, cut2=99.9, cut3=100.1, cut4=110))
 \seealso{
 \code{\link{d.ends}}
 }
-

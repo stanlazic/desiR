@@ -9,7 +9,7 @@ geometry: margin=1.25in
 vignette: >
   %\VignetteIndexEntry{Gene ranking with desirability functions}
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+  \usepackage[utf8]{inputenc}
 ---
 
 # Introduction
